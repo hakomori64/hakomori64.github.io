@@ -4,11 +4,15 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="285943921529-j1dh1k6o2nourvj4p4vim8pvigqa2vf8.apps.googleusercontent.com
 ">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
   </head>
   <body>
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     <script>
+      function init() {
+        gapi.load('auth2', function() { });
+      }
+      
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
