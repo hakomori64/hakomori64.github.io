@@ -1,6 +1,6 @@
 baseURL = "https://hakomori64.github.io/"
 languageCode = "ja-jp"
-title = "Yu's Blog"
+title = "はこもりのブログ"
 theme = "ananke"
 
 [taxonomies]
