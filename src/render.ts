@@ -78,8 +78,11 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
     n2m.setCustomTransformer('video', async (block) => {
         const { video } = block as any;
         console.info(`video: ${JSON.stringify(video)}`);
-        if (!video?.external?.url) return '';
-        return `<video src="${video?.external?.url}" controls></video>`;
+        if (video?.external?.url) {
+            return `<video src="${video?.external?.url}" controls></video>`;
+        } else if (video?.file?.url) {
+            return `<video src="${video?.file?.url}" controls></video>`;
+        }
     });
 
     let nearest_expiry_time: string | null = null
