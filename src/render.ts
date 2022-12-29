@@ -82,6 +82,8 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
             return `<video src="${video?.external?.url}" controls></video>`;
         } else if (video?.file?.url) {
             return `<video src="${video?.file?.url}" controls></video>`;
+        } else {
+            return '';
         }
     });
 
