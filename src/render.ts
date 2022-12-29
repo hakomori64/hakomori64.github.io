@@ -90,6 +90,13 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
     n2m.setCustomTransformer('audio', async (block) => {
         const { audio } = block as any;
         console.info(`audio: ${JSON.stringify(audio)}`);
+        if (audio?.external?.url) {
+            return `<audio style="width: 100%; height: auto;" controls><source src="${audio?.external?.url}"></audio>`;
+        } else if (audio?.file?.url) {
+            return `<audio style="width: 100%; height: auto;" controls><source src="${audio?.file?.url}"></audio>`;
+        } else {
+            return '';
+        }
         return '';
     });
 
