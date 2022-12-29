@@ -7,3 +7,15 @@ theme = "ananke"
 tag = "tags"
 category = "categories"
 author = "authors"
+
+[menu]
+
+[[menu.main]]
+identifier = "posts"
+name = "posts"
+url = "/posts/"
+
+[[menu.main]]
+identifier = "about"
+name = "about"
+url = "/about/"
