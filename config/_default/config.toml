@@ -2,3 +2,8 @@ baseURL = "https://hakomori64.github.io/"
 languageCode = "ja-jp"
 title = "Yu's Blog"
 theme = "ananke"
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+author = "authors"
