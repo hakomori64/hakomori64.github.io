@@ -77,6 +77,7 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
     }
     n2m.setCustomTransformer('video', async (block) => {
         const { video } = block as any;
+        console.info(`video: ${video}`);
         if (!video?.external?.url) return '';
         return `<video src="${video?.external?.url}" controls></video>`;
     });
