@@ -3,7 +3,7 @@ import { UserConfig } from "./src/config"
 const userConfig: UserConfig = {
     mount: {
         manual: false,
-        page_url: 'https://pcloud.notion.site/Notion-DoIt-04bcc51cfe4c49938229c35e4f0a6fb6',
+        page_url: 'https://deluxe-sidecar-e13.notion.site/Notion-DoIt-d3e67fa706544d50bef5a59229e945bf',
         pages: [
             // {
             //     page_id: '<page_id>',
