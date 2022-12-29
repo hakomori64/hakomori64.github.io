@@ -34,7 +34,7 @@ xhtml = false
 [highlight]
 anchorLineNos = false
 codeFences = true
-guessSyntax = false
+# guessSyntax = true
 hl_Lines = ''
 hl_inline = false
 lineAnchors = ''
