@@ -106,7 +106,7 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
         nearest_expiry_time = expiry_time
       }
     }
-  } 
+  }
 
   // map page properties to front matter
   for (const property in page.properties) {
@@ -210,7 +210,7 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
   frontMatter.UPDATE_TIME = (new Date()).toISOString()
   // save nearest expiry time
   if (nearest_expiry_time) frontMatter.EXPIRY_TIME = nearest_expiry_time
- 
+
 
 
   return {
@@ -250,6 +250,7 @@ export async function savePage(
   console.info(`[Info] Updating ${postpath}`);
 
   const { title, pageString } = await renderPage(page, notion);
+  console.info(`[Info] pagestring ${pageString}`);
   const fileName = getFileName(title, page.id);
   await sh(
     `hugo new "${mount.target_folder}/${fileName}"`,
