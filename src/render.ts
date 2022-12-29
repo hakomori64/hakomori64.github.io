@@ -75,6 +75,15 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
       console.warn('[Warn] invalid notion.toml config')
       break;
   }
+  n2m.setCustomTransformer('embed', async (block) => {
+    const {embed} = block as any;
+    if (!embed?.url) return '';
+    return `<figure>
+        <iframe src="${embed?.url}"></iframe>
+        <figcaption>${await n2m.blockToMarkdown(embed?.caption)}</figcaption>
+    </figure>`;
+  });
+
 
   let nearest_expiry_time: string | null = null
   const mdblocks = await n2m.pageToMarkdown(page.id);
