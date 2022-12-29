@@ -87,6 +87,13 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
         }
     });
 
+    n2m.setCustomTransformer('audio', async (block) => {
+        const { audio } = block as any;
+        console.info(`audio: ${JSON.stringify(audio)}`);
+        return '';
+    });
+
+
     let nearest_expiry_time: string | null = null
     const mdblocks = await n2m.pageToMarkdown(page.id);
     const page_expiry_time = getExpiryTime(mdblocks)
