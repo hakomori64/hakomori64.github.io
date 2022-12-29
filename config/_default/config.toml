@@ -19,3 +19,6 @@ url = "/posts/"
 identifier = "about"
 name = "About"
 url = "/about/"
+
+[params]
+mainSections = [ "posts", "categories", "tags" ]
