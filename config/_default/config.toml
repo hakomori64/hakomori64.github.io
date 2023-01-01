@@ -2,6 +2,7 @@ baseURL = "https://hakomori64.github.io/"
 languageCode = "ja-jp"
 title = "はこもりのブログ"
 theme = "ananke"
+hasCJKLanguage = true
 
 [taxonomies]
 tag = "tags"
