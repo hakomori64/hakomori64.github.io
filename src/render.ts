@@ -107,7 +107,7 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
             return '';
         }
 
-        return `{{ < link "${bookmark?.url}" > }}`;
+        return `<a href="${bookmark?.url}">${bookmark?.url}</a>`;
     });
 
     n2m.setCustomTransformer('link_preview', async (block) => {
@@ -117,7 +117,7 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
             return '';
         }
 
-        return `{{ < link "${link_preview?.url}" > }}`;
+        return `<a href="${link_preview?.url}">${link_preview?.url}</a>`;
     });
 
     let nearest_expiry_time: string | null = null
