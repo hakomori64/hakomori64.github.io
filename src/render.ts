@@ -154,6 +154,7 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
 
     // map page properties to front matter
     for (const property in page.properties) {
+        console.info(`page property: ${property} ${JSON.stringify(page.properties[property])}`);
         const id = page.properties[property].id;
         const response = await notion.pages.properties.retrieve({
             page_id: page.id,
