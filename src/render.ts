@@ -100,6 +100,25 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
         return '';
     });
 
+    n2m.setCustomTransformer('bookmark', async (block) => {
+        const { bookmark } = block as any;
+        console.info(`bookmark: ${JSON.stringify(bookmark)}`);
+        if (!bookmark?.url) {
+            return '';
+        }
+
+        return `{{ < link "${bookmark?.url}" > }}`;
+    });
+
+    n2m.setCustomTransformer('link_preview', async (block) => {
+        const { link_preview } = block as any;
+        console.info(`link_preview: ${JSON.stringify(link_preview)}`);
+        if (!link_preview?.url) {
+            return '';
+        }
+
+        return `{{ < link "${link_preview?.url}" > }}`;
+    });
 
     let nearest_expiry_time: string | null = null
     const mdblocks = await n2m.pageToMarkdown(page.id);
