@@ -3,6 +3,9 @@ languageCode = "ja-jp"
 title = "はこもりのブログ"
 theme = "ananke"
 hasCJKLanguage = true
+preserveTaxonomyNames = true
+paginate = 10
+disqusShortname = "https-hakomori64-github-io"
 
 [taxonomies]
 tag = "tags"
