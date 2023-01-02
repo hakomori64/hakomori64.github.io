@@ -170,9 +170,13 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
                         frontMatter[property] = response.select?.name;
                     break;
                 case "multi_select":
-                    frontMatter[property] = response.multi_select.map(
-                        (select) => select.name
-                    );
+                    if (property === "keywords") {
+                        frontMatter[property] = response.multi_select.map((select) => select.name).join(", ");
+                    } else {
+                        frontMatter[property] = response.multi_select.map(
+                            (select) => select.name
+                        );
+                    }
                     break;
                 case "email":
                     if (response.email) frontMatter[property] = response.email;
